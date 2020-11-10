@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: saddlebrown;
+}
+h1{
+    margin-bottom: 5vh;
+}
+.board{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: aliceblue;
+    width: 75vw;
+    height: 75vh;
+    border: 5px solid aliceblue;
+}
+.row{
+    flex-basis: calc(100%/3);
+    height: calc(100%/3);
+    border: 1px solid aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col{
+    height: 100%;
+    width: calc(100%/3);
+}
+.playChar{
+    font-size: 8em;
+}
