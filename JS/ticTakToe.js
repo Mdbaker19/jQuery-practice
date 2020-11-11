@@ -11,7 +11,45 @@ $(document).ready(function(){
     let bM = $("#bM");
     let bR = $("#bR");
 
+    let onePlayer = $("#onePlayer");
+    let isOnePlayer = false;
+    onePlayer.click(function(){
+        $(this).css("color", "yellow");
+        isOnePlayer = true;
+        $(".spot").click(function () {
+            if (!gameOver) {
+                if ($(this).html().length < 1) {
+                    $(this).text(change());
+                }
+            }
+            checkForWin();
+        });
+    });
+
+
+    let twoPlayer = $("#twoPlayer");
+    let isTwoPlayer = false;
+
+
+    let newGame = $("#newGame");
+    let isNewGame = false;
+
+
+
+
     let count = 0;
+    let gameOver = false;
+
+
+
+
+
+
+
+
+
+
+
 
     function change(){
         let char;
@@ -22,60 +60,83 @@ $(document).ready(function(){
         return char;
     }
 
-    // let allowMove = [true, true, true, true, true, true, true, true, true];
-    $(".spot").click(function(){
-        $(this).text(change()).css("fontSize", "10em");
-        // forFindingValue(this);
-        // checkForWin();
-        // logAll()
-    });
-
-    // function forFindingValue(x){
-    //     console.log($(x).text());
-    // }
-
-
-    // function logAll(){
-    //     console.log($("#tL").text().length);
-    //     console.log(tM);
-    //     console.log(tR);
-    //     console.log(mL);
-    //     console.log(mM);
-    //     console.log(mR);
-    //     console.log(bL);
-    //     console.log(bM);
-    //     console.log(bR);
-    // }
-
     function allEqual(a, b, c){
         return ((a === b && b === c) && a.length > 0 && b.length > 0 && c.length > 0);
     }
 
     function checkForWin(){
-        let won = false;
+        let tl = tL.html();
+        let tm = tM.html();
+        let tr = tR.html();
+        let ml = mL.html();
+        let mm = mM.html();
+        let mr = mR.html();
+        let bl = bL.html();
+        let bm = bM.html();
+        let br = bR.html();
 
-        if(allEqual(tL, tM, tR)){
-            won = true;
-        } else if(allEqual(mL, mM, mR)){
-            won = true;
-        } else if(allEqual(bL, bM, bR)){
-            won = true;
-        } else if(allEqual(tL, mM, bR)){
-            won = true;
-        } else if(allEqual(tR, mM, bL)){
-            won = true;
-        } else if(allEqual(tL, mL, bL)){
-            won = true;
-        } else if(allEqual(tM, mM, bM)){
-            won = true;
-        } else if(allEqual(tR, mR, bR)){
-            won = true;
-        }
-        if(won){
-            alert("winner")
+        if(allEqual(tl, tm, tr)){
+            colorChangeFirst(tL);
+            colorChangeSecond(tM);
+            colorChangeThird(tR);
+            gameOver = true;
+        } else if(allEqual(ml, mm, mr)){
+            colorChangeFirst(mL);
+            colorChangeSecond(mM);
+            colorChangeThird(mR);
+            gameOver = true;
+        } else if(allEqual(bl, bm, br)){
+            colorChangeFirst(bL);
+            colorChangeSecond(bM);
+            colorChangeThird(bR);
+            gameOver = true;
+        } else if(allEqual(tl, mm, br)){
+            colorChangeFirst(tL);
+            colorChangeSecond(mM);
+            colorChangeThird(bR);
+            gameOver = true;
+        } else if(allEqual(tl, ml, bl)){
+            colorChangeFirst(tL);
+            colorChangeSecond(mL);
+            colorChangeThird(bL);
+            gameOver = true;
+        } else if(allEqual(tm, mm, bm)){
+            colorChangeFirst(tM);
+            colorChangeSecond(mM);
+            colorChangeThird(bM);
+            gameOver = true;
+        } else if(allEqual(tr, mr, br)){
+            colorChangeFirst(tR);
+            colorChangeSecond(mR);
+            colorChangeThird(bR);
+            gameOver = true;
+        } else if(allEqual(bl, mm, tr)){
+            colorChangeFirst(bL);
+            colorChangeSecond(mM);
+            colorChangeThird(tR);
+            gameOver = true;
         }
     }
 
-
-
+    function colorChangeFirst(a){
+        a = a.css({
+            color: "yellow",
+            backgroundColor: "grey"
+        });
+        return a;
+    }
+    function colorChangeSecond(a){
+        a = a.css({
+            color: "yellow",
+            backgroundColor: "grey"
+        });
+        return a;
+    }
+    function colorChangeThird(a){
+        a = a.css({
+            color: "yellow",
+            backgroundColor: "grey"
+        });
+        return a;
+    }
 });
