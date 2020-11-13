@@ -13,14 +13,24 @@ $(document).ready(function(){
 
     let onePlayer = $("#onePlayer");
     let isOnePlayer = false;
+    let isPlayerTurn = true;
     onePlayer.click(function(){
-        $(this).css("color", "yellow");
+        $(this).css("color", "#59A96A");
         isOnePlayer = true;
         $(".spot").click(function () {
             if (!gameOver) {
-                if ($(this).html().length < 1) {
-                    $(this).text(change());
-                }
+                if(isPlayerTurn){
+                    if ($(this).html().length < 1) {
+                        $(this).text(change());
+                        isPlayerTurn = false;
+                        for (let i = 0; i < grid.length; i++) {
+                            if ($(this).attr("id") === grid[i].location) {
+                                grid[i].value = $(this).html();
+                                grid[i].isOption = false;
+                            }
+                        }
+                    }
+                } else ai();
             }
             checkForWin();
         });
@@ -32,18 +42,88 @@ $(document).ready(function(){
 
 
     let newGame = $("#newGame");
-    let isNewGame = false;
-
+    newGame.click(function (){
+        window.location.reload();
+    });
 
 
 
     let count = 0;
     let gameOver = false;
 
+    let grid = [
+        {
+            isOption: true,
+            value: "",
+            location: tL.attr("id")
+        },
+        {
+            isOption: true,
+            value: "",
+            location: tM.attr("id")
+        },
+        {
+            isOption: true,
+            value: "",
+            location: tR.attr("id")
+        },
+        {
+            isOption: true,
+            value: "",
+            location: mL.attr("id")
+        },
+        {
+            isOption: true,
+            value: "",
+            location: mM.attr("id")
+        },
+        {
+            isOption: true,
+            value: "",
+            location: mR.attr("id")
+        },
+        {
+            isOption: true,
+            value: "",
+            location: bL.attr("id")
+        },
+        {
+            isOption: true,
+            value: "",
+            location: bM.attr("id")
+        },
+        {
+            isOption: true,
+            value: "",
+            location: bR.attr("id")
+        }
+    ];
 
 
 
 
+
+    function ai(){
+        if(!isPlayerTurn){
+
+            for(let i = 0; i < grid.length; i++){
+                if(grid[i].isOption){
+                    grid[i].value = "X";
+                    isPlayerTurn = true;
+                }
+            }
+
+        }
+    }
+
+
+    function check2InARow(a, b, c){
+        let playInThirdSpot = false;
+        if(a.value === "O" && b.value === "O"){
+            playInThirdSpot = c;
+        }
+        return playInThirdSpot
+    }
 
 
 
@@ -120,22 +200,22 @@ $(document).ready(function(){
 
     function colorChangeFirst(a){
         a = a.css({
-            color: "yellow",
-            backgroundColor: "grey"
+            color: "#59A96A",
+            backgroundColor: "#60435F"
         });
         return a;
     }
     function colorChangeSecond(a){
         a = a.css({
-            color: "yellow",
-            backgroundColor: "grey"
+            color: "#59A96A",
+            backgroundColor: "#60435F"
         });
         return a;
     }
     function colorChangeThird(a){
         a = a.css({
-            color: "yellow",
-            backgroundColor: "grey"
+            color: "#59A96A",
+            backgroundColor: "#60435F"
         });
         return a;
     }

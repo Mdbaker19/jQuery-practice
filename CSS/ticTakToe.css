@@ -8,7 +8,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: saddlebrown;
+    background-color: #a9714b;
 }
 h1{
     margin-bottom: 1vh;
@@ -20,8 +20,8 @@ h1{
     width: 250px;
 }
 button{
-    background-color: black;
-    color: aliceblue;
+    background-color: #3F403F;
+    color: #E6E8E6;
     border: 3px solid grey;
     border-radius: 5px;
     width: 72px;
@@ -34,16 +34,16 @@ button:hover{
 .board{
     display: flex;
     justify-content: center;
-    background-color: black;
-    color: aliceblue;
+    background-color: #3F403F;
+    color: #E6E8E6;
     width: 250px;
     height: 250px;
-    border: 5px solid aliceblue;
+    border: 5px solid #E6E8E6;
 }
 .row{
     flex-basis: calc(100%/3);
     height: calc(100%/3);
-    border: 1px solid aliceblue;
+    border: 1px solid #E6E8E6;
     display: flex;
     justify-content: center;
     align-items: center;
