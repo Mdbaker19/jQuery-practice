@@ -27,6 +27,7 @@ $(document).ready(function(){
                             if ($(this).attr("id") === grid[i].location) {
                                 grid[i].value = $(this).html();
                                 grid[i].isOption = false;
+                                console.log(grid);
                             }
                         }
                     }
@@ -55,47 +56,47 @@ $(document).ready(function(){
         {
             isOption: true,
             value: "",
-            location: tL.attr("id")
+            location: tL.attr("id"),
         },
         {
             isOption: true,
             value: "",
-            location: tM.attr("id")
+            location: tM.attr("id"),
         },
         {
             isOption: true,
             value: "",
-            location: tR.attr("id")
+            location: tR.attr("id"),
         },
         {
             isOption: true,
             value: "",
-            location: mL.attr("id")
+            location: mL.attr("id"),
         },
         {
             isOption: true,
             value: "",
-            location: mM.attr("id")
+            location: mM.attr("id"),
         },
         {
             isOption: true,
             value: "",
-            location: mR.attr("id")
+            location: mR.attr("id"),
         },
         {
             isOption: true,
             value: "",
-            location: bL.attr("id")
+            location: bL.attr("id"),
         },
         {
             isOption: true,
             value: "",
-            location: bM.attr("id")
+            location: bM.attr("id"),
         },
         {
             isOption: true,
             value: "",
-            location: bR.attr("id")
+            location: bR.attr("id"),
         }
     ];
 
@@ -110,6 +111,7 @@ $(document).ready(function(){
                 if(grid[i].isOption){
                     grid[i].value = "X";
                     isPlayerTurn = true;
+                    break;
                 }
             }
 
