@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #3F403F;
+    display: flex;
+    justify-content: center;
+}
+button{
+    height: 12.5vh;
+    width: fit-content;
+}
+button:hover{
+    cursor: pointer;
+}
+#assert{
+    margin-left: 5em;
+}
+.simon{
+    display: flex;
+    flex-wrap: wrap;
+    border: 5px solid black;
+    border-radius: 1vh;
+    margin: 25vh 0;
+    width: 50vh;
+    height: 50vh;
+    background-color: #E6E8E6;
+}
+.color{
+    width: 50%;
+    height: 50%;
+    border: 5px solid black;
+    opacity: .5;
+}
+.blue{
+    background-color: #5C95FF;
+}
+.red{
+    background-color: #F22B29;
+}
+.yellow{
+    background-color: #F2BB05;
+}
+.green{
+    background-color: #1C3A13;
+}
